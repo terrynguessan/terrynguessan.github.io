@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Terry NGuessan — Technical Support Specialist and IT Student. Portfolio showcasing technical expertise, certifications, systems thinking, and a commitment to excellent service." />
+  <title>Terry NGuessan | Technical Support & IT</title>
+
+  <!-- ============================================================
+       FONTS — Google Fonts import (no framework, just fonts)
+       Playfair Display: Elegant editorial display font
+       Source Sans 3: Clean, highly readable body font
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================================
+       DESIGN TOKENS — Edit colors, fonts, and spacing here
+    ============================================================= */
+    :root {
+      --navy:       #0B1120;
+      --navy-mid:   #162035;
+      --navy-card:  #1A2845;
+      --navy-border:#253556;
+      --cream:      #F4F1EA;
+      --cream-dim:  #D8D3C8;
+      --amber:      #E9A73A;
+      --amber-dim:  #C8891A;
+      --amber-glow: rgba(233, 167, 58, 0.15);
+      --white:      #FFFFFF;
+      --text-body:  #CBD5E8;
+      --text-muted: #7A8AA8;
+      --radius:     12px;
+      --radius-sm:  8px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.35);
+      --shadow-hover:0 8px 40px rgba(0,0,0,0.5);
+      --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Source Sans 3', 'Segoe UI', sans-serif;
+      --max-width: 1100px;
+    }
+
+    /* =============================================================
+       RESET & BASE
+    ============================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--navy);
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--amber);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover { color: #FFD580; }
+
+    img { display: block; max-width: 100%; }
+
+    /* =============================================================
+       TYPOGRAPHY HELPERS
+    ============================================================= */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.8;
+    }
+
+    /* =============================================================
+       LAYOUT HELPERS
+    ============================================================= */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    /* Subtle decorative divider */
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), transparent);
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+
+    /* =============================================================
+       NAVIGATION
+    ============================================================= */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.1rem 0;
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: box-shadow var(--transition);
+    }
+
+    nav.scrolled {
+      box-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Logo / wordmark ── */
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span { color: var(--amber); }
+
+    /* ── Nav links ── */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--amber);
+      border-radius: 1px;
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── Mobile hamburger ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    /* =============================================================
+       HERO SECTION
+    ============================================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated gradient mesh background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(233,167,58,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 10% 80%, rgba(22,32,53,0.9) 0%, transparent 60%),
+        linear-gradient(160deg, #0B1120 0%, #111C35 100%);
+    }
+
+    /* Subtle grid overlay for a technical feel */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(233,167,58,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(233,167,58,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Staggered entrance animation ── */
+    .hero-tag,
+    .hero-name,
+    .hero-title,
+    .hero-desc,
+    .hero-actions {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    .hero-tag    { animation-delay: 0.1s; }
+    .hero-name   { animation-delay: 0.25s; }
+    .hero-title  { animation-delay: 0.4s; }
+    .hero-desc   { animation-delay: 0.55s; }
+    .hero-actions{ animation-delay: 0.7s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-glow);
+      border: 1px solid rgba(233,167,58,0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+    }
+    .hero-name .accent { color: var(--amber); }
+
+    .hero-title {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    /* Vertical pipe dividers between roles */
+    .hero-title span {
+      display: inline-block;
+      margin: 0 0.6rem;
+      color: var(--amber);
+      opacity: 0.5;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      max-width: 520px;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    /* ── Primary CTA button ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      background: var(--amber);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover {
+      background: #FFD06B;
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(233,167,58,0.35);
+    }
+
+    /* ── Ghost/outline button ── */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      background: transparent;
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--navy-border);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .btn-outline:hover {
+      border-color: var(--amber);
+      background: rgba(233,167,58,0.07);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    /* ── Social icon links in hero ── */
+    .hero-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+    .social-link:hover { color: var(--cream); }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.2s forwards;
+    }
+    .scroll-cue span {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .scroll-cue .cue-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--amber), transparent);
+      animation: scrollBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: scaleY(1); opacity: 0.6; }
+      50% { transform: scaleY(1.3); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* =============================================================
+       ABOUT SECTION
+    ============================================================= */
+    #about {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--text-body);
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* ── Quick-facts card strip ── */
+    .about-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .fact-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .fact-card:hover {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 1px rgba(233,167,58,0.15), var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .fact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--amber-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--amber);
+    }
+    .fact-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+    .fact-body h4 {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+    .fact-body p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* =============================================================
+       SKILLS SECTION
+    ============================================================= */
+    #skills { background: var(--navy); }
+
+    .skills-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient amber corner glow on hover */
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(233,167,58,0.18), transparent 70%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .skill-card:hover::before { opacity: 1; }
+
+    .skill-card:hover {
+      border-color: rgba(233,167,58,0.4);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .skill-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      background: var(--amber-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      color: var(--amber);
+    }
+    .skill-card-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    .skill-card h3 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Tag pills ── */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--amber);
+      background: var(--amber-glow);
+      border: 1px solid rgba(233,167,58,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    /* =============================================================
+       PROFESSIONAL FOCUS SECTION
+    ============================================================= */
+    #focus {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .focus-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .focus-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .focus-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .focus-item:hover {
+      border-color: rgba(233,167,58,0.35);
+      transform: translateX(4px);
+    }
+
+    .focus-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: rgba(233,167,58,0.25);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 2rem;
+    }
+
+    .focus-text h4 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.35rem;
+    }
+    .focus-text p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Core competency highlight box ── */
+    .focus-highlight {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .focus-highlight h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+
+    .competency-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .competency-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+
+    .competency-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .focus-quote {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--navy-border);
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .focus-quote::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--amber);
+      opacity: 0.5;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    /* =============================================================
+       EDUCATION & CERTIFICATIONS SECTION
+    ============================================================= */
+    #education { background: var(--navy); }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .edu-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .edu-card:hover {
+      border-color: rgba(233,167,58,0.4);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .edu-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+    .edu-badge.in-progress {
+      color: var(--amber);
+      background: var(--amber-glow);
+      border: 1px solid rgba(233,167,58,0.25);
+    }
+    .edu-badge.earned {
+      color: #6FDFB0;
+      background: rgba(111,223,176,0.1);
+      border: 1px solid rgba(111,223,176,0.2);
+    }
+    .edu-badge.active {
+      color: #7CC5F4;
+      background: rgba(124,197,244,0.1);
+      border: 1px solid rgba(124,197,244,0.2);
+    }
+
+    .edu-card h3 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-card .institution {
+      font-size: 0.85rem;
+      color: var(--amber);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-card .edu-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* =============================================================
+       CONTACT SECTION
+    ============================================================= */
+    #contact {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-text p {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color var(--transition), background var(--transition), color var(--transition), transform var(--transition);
+    }
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: var(--amber);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .contact-link:hover {
+      border-color: var(--amber);
+      background: rgba(233,167,58,0.06);
+      color: var(--cream);
+      transform: translateX(4px);
+    }
+    .contact-link .link-label {
+      flex: 1;
+    }
+    .contact-link .link-arrow {
+      color: var(--amber);
+      font-size: 1rem;
+      transition: transform var(--transition);
+    }
+    .contact-link:hover .link-arrow { transform: translateX(3px); }
+
+    /* ── Availability notice card ── */
+    .availability-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .avail-status {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #6FDFB0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .avail-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6FDFB0;
+      box-shadow: 0 0 0 3px rgba(111,223,176,0.2);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(111,223,176,0.2); }
+      50% { box-shadow: 0 0 0 6px rgba(111,223,176,0.08); }
+    }
+
+    .availability-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .availability-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* =============================================================
+       FOOTER
+    ============================================================= */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 0;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .footer-copy a { color: var(--amber); font-weight: 500; }
+
+    .footer-right {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-right a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+    .footer-right a:hover { color: var(--cream); }
+
+    /* =============================================================
+       RESPONSIVE — TABLET (max-width: 900px)
+    ============================================================= */
+    @media (max-width: 900px) {
+      .about-grid,
+      .focus-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .focus-highlight { position: static; }
+
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 260px;
+        background: var(--navy-card);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 2rem;
+        gap: 2rem;
+        border-left: 1px solid var(--navy-border);
+        transition: right var(--transition);
+        z-index: 200;
+      }
+
+      .nav-links.open { right: 0; }
+
+      .nav-links a {
+        font-size: 1.05rem;
+        color: var(--cream);
+      }
+
+      .nav-toggle { display: flex; z-index: 300; position: relative; }
+
+      .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      .skills-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* =============================================================
+       RESPONSIVE — MOBILE (max-width: 560px)
+    ============================================================= */
+    @media (max-width: 560px) {
+      section { padding: 4rem 0; }
+
+      .container { padding: 0 1.25rem; }
+
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+
+      .hero-socials { flex-wrap: wrap; }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       To update links, edit the <a href="#..."> targets below.
+  ============================================================ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <!-- Logo — edit display name here -->
+      <a href="#hero" class="nav-logo">Terry<span>.</span></a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#focus">Focus</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Mobile toggle button -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO SECTION
+       Edit your headline, subtitle, and intro paragraph here.
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <!-- Eyebrow tag -->
+      <div class="hero-tag">Technical Support & IT Portfolio</div>
+
+      <!-- Name — EDIT HERE -->
+      <h1 class="hero-name">Terry<br><span class="accent">NGuessan</span></h1>
+
+      <!-- Role subtitle — edit the three role labels below -->
+      <p class="hero-title">
+        Technical Support Specialist
+        <span>|</span>
+        IT Student
+        <span>|</span>
+        Field Service Professional
+      </p>
+
+      <!-- Short intro — EDIT THIS PARAGRAPH -->
+      <p class="hero-desc">
+        I diagnose complex technical problems, communicate clearly with customers and teammates,
+        and bring structured thinking to every challenge. Currently advancing my education in
+        Information Technology while building practical skills in support and systems.
+      </p>
+
+      <!-- CTA buttons — update href="#contact" or to a resume PDF link -->
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Connect With Me
+          <!-- Arrow icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <!-- Optional: Link to a hosted resume PDF -->
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+
+      <!-- Social icons — REPLACE # with your real profile URLs -->
+      <div class="hero-socials">
+        <!-- GitHub -->
+        <a href="https://github.com/terrynguessan" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <!-- LinkedIn — REPLACE # with your LinkedIn profile URL -->
+        <a href="https://www.linkedin.com/in/terry-nguessan-6b178266/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+        <!-- Email -->
+        <a href="mailto:terry.nguessan@gmail.com" class="social-link" aria-label="Email">
+          <!-- REPLACE the email address above with your real address -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="cue-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT SECTION
+       Edit the bio paragraphs and the four fact cards below.
+  ============================================================ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Left: bio text -->
+        <div class="about-text">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Technically grounded.<br>Customer focused.</h2>
+          <div class="divider"></div>
+
+          <!-- EDIT YOUR BIO PARAGRAPHS HERE -->
+          <p>
+            I'm a Technical Support Specialist with hands-on experience diagnosing and resolving complex hardware,
+            software, and network-related issues in demanding service environments. I take pride in bridging the
+            gap between technical complexity and clear, accessible communication.
+          </p>
+          <p>
+            My approach is methodical — I document thoroughly, escalate appropriately, and follow processes
+            that lead to repeatable, quality results. I believe the best technical support is proactive,
+            not just reactive.
+          </p>
+          <p>
+            Outside of work, I'm actively pursuing a degree in Information Technology, building on my
+            field experience with deeper foundations in systems, networking, and database management.
+          </p>
+        </div>
+
+        <!-- Right: quick-fact cards — edit titles and descriptions -->
+        <div class="about-facts">
+
+          <div class="fact-card">
+            <div class="fact-icon">
+              <!-- Wrench / tool icon -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="fact-body">
+              <h4>Field Service Troubleshooting</h4>
+              <p>Practical, hands-on experience resolving hardware and connectivity issues across enterprise environments.</p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon">
+              <!-- Database / documentation icon -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div class="fact-body">
+              <h4>Documentation & Knowledge Management</h4>
+              <p>Strong habit of creating clear, actionable documentation that supports teammates and improves service consistency.</p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon">
+              <!-- Users / customer icon -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="fact-body">
+              <h4>Customer Communication</h4>
+              <p>Clear, patient communication with users at all technical levels — from end users to IT administrators.</p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon">
+              <!-- Book / learning icon -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <div class="fact-body">
+              <h4>Continuous Learning</h4>
+              <p>Currently advancing through a B.S. in Information Technology, applying academic learning directly to daily technical work.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SKILLS SECTION
+       Add or remove .skill-card blocks to customize your skill set.
+  ============================================================ -->
+  <section id="skills">
+    <div class="container">
+      <div class="skills-header">
+        <div>
+          <p class="section-label">What I Know</p>
+          <h2 class="section-title">Technical Skill Set</h2>
+        </div>
+        <p class="section-intro">
+          A practical range of technical and professional skills built through hands-on work
+          and ongoing academic study.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Skill Card 1 — edit title, description, and tags -->
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Hardware & Device Support</h3>
+          <p>Diagnosing and resolving issues with workstations, networked peripherals, and enterprise devices across multiple product lines.</p>
+          <div class="skill-tags">
+            <span class="tag">Diagnostics</span>
+            <span class="tag">Repair</span>
+            <span class="tag">Calibration</span>
+          </div>
+        </div>
+
+        <!-- Skill Card 2 -->
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Technical Documentation</h3>
+          <p>Writing structured case notes, knowledge base articles, and process documentation that teams can reliably reference and reuse.</p>
+          <div class="skill-tags">
+            <span class="tag">Case Notes</span>
+            <span class="tag">KB Articles</span>
+            <span class="tag">Process Docs</span>
+          </div>
+        </div>
+
+        <!-- Skill Card 3 -->
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>Networking Fundamentals</h3>
+          <p>Understanding of TCP/IP, DNS, DHCP, and connectivity troubleshooting in both wired and wireless environments.</p>
+          <div class="skill-tags">
+            <span class="tag">TCP/IP</span>
+            <span class="tag">DNS/DHCP</span>
+            <span class="tag">Connectivity</span>
+          </div>
+        </div>
+
+        <!-- Skill Card 4 -->
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 000 6h20a3 3 0 000-6zm-2-7H4a3 3 0 000 6h16a3 3 0 000-6zm2-7H2a3 3 0 000 6h20a3 3 0 000-6z"/></svg>
+          </div>
+          <h3>Database Concepts</h3>
+          <p>Working knowledge of relational databases, SQL queries, joins, and data management principles gained through coursework and application.</p>
+          <div class="skill-tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Relational DB</span>
+            <span class="tag">Data Modeling</span>
+          </div>
+        </div>
+
+        <!-- Skill Card 5 -->
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Problem-Solving Methodology</h3>
+          <p>Systematic approach to isolating root causes — collecting symptoms, cross-referencing documentation, and validating fixes before closing.</p>
+          <div class="skill-tags">
+            <span class="tag">Root Cause</span>
+            <span class="tag">Escalation</span>
+            <span class="tag">Validation</span>
+          </div>
+        </div>
+
+        <!-- Skill Card 6 -->
+        <div class="skill-card">
+          <div class="skill-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+          </div>
+          <h3>Web & Frontend Basics</h3>
+          <p>Building functional web pages and tools using HTML, CSS, and JavaScript — including utility apps for workflow improvement.</p>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROFESSIONAL FOCUS SECTION
+       Edit the four focus-item blocks and the competency list.
+  ============================================================ -->
+  <section id="focus">
+    <div class="container">
+      <div class="focus-layout">
+
+        <!-- Left: numbered focus items -->
+        <div>
+          <p class="section-label">How I Work</p>
+          <h2 class="section-title">Professional<br>Focus Areas</h2>
+          <div class="divider"></div>
+
+          <div class="focus-items">
+
+            <div class="focus-item">
+              <div class="focus-num">01</div>
+              <div class="focus-text">
+                <h4>Structured Troubleshooting</h4>
+                <p>Every problem gets a methodical approach — symptom collection, hypothesis testing, and documented resolution steps that others can follow.</p>
+              </div>
+            </div>
+
+            <div class="focus-item">
+              <div class="focus-num">02</div>
+              <div class="focus-text">
+                <h4>Process Improvement</h4>
+                <p>Identifying inefficiencies in support workflows and finding practical ways to improve speed, accuracy, and consistency without sacrificing quality.</p>
+              </div>
+            </div>
+
+            <div class="focus-item">
+              <div class="focus-num">03</div>
+              <div class="focus-text">
+                <h4>Knowledge Transfer</h4>
+                <p>Creating resources that make team knowledge accessible — from case summaries to step-by-step reference guides that reduce repeat escalations.</p>
+              </div>
+            </div>
+
+            <div class="focus-item">
+              <div class="focus-num">04</div>
+              <div class="focus-text">
+                <h4>Customer-Centered Service</h4>
+                <p>Keeping the end user's experience at the center of every interaction — clear updates, realistic expectations, and follow-through on commitments.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: core competencies highlight card -->
+        <div class="focus-highlight">
+          <h3>Core Competencies</h3>
+
+          <!-- EDIT this list to match your actual strengths -->
+          <ul class="competency-list">
+            <li>Level 3 Technical Support & Escalation Management</li>
+            <li>Field Service Troubleshooting & Diagnostics</li>
+            <li>Cross-Functional Team Collaboration</li>
+            <li>Root Cause Analysis & Incident Documentation</li>
+            <li>Customer Relationship Management</li>
+            <li>Systems Thinking & Process Design</li>
+            <li>Agile & Iterative Work Methods</li>
+            <li>Technical Writing & Knowledge Base Authorship</li>
+          </ul>
+
+          <!-- Optional: a short professional philosophy quote — EDIT or REMOVE -->
+          <div class="focus-quote">
+            Good technical support isn't about fixing things fast — it's about fixing them
+            right, documenting why, and making sure it doesn't happen again.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       EDUCATION & CERTIFICATIONS SECTION
+       Add, remove, or edit .edu-card blocks below.
+       Badges: use class "in-progress", "earned", or "active"
+  ============================================================ -->
+  <section id="education">
+    <div class="container">
+      <p class="section-label">Academic & Professional Development</p>
+      <h2 class="section-title">Education &amp; Certifications</h2>
+      <div class="divider"></div>
+
+      <div class="edu-grid">
+
+        <!-- Education Card 1 — WGU Degree -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>B.S. Information Technology</h3>
+              <p class="institution">Western Governors University</p>
+            </div>
+            <span class="edu-badge in-progress">In Progress</span>
+          </div>
+          <p class="edu-desc">
+            Undergraduate program covering networking, cybersecurity fundamentals,
+            database management, software development, IT service, and project management.
+            Applying academic knowledge to practical technical support and systems scenarios.
+          </p>
+        </div>
+
+        <!-- Certification Card — Linux Essentials -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>LPI Linux Essentials 010-160</h3>
+              <p class="institution">Linux Professional Institute</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Passed May 2026. Covers Linux concepts, command-line basics, files and directories,
+            security, permissions, open-source concepts, and Linux operating system fundamentals.
+          </p>
+        </div>
+
+        <!-- Certification Card — AWS -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>AWS Certified Cloud Practitioner</h3>
+              <p class="institution">Amazon Web Services</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Issued July 2025. Valid through July 2028. Foundational certification covering cloud concepts,
+            AWS services, security, architecture, pricing, and support.
+          </p>
+        </div>
+
+        <!-- Certification Card — ITIL -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>ITIL 4 Foundation Certificate in IT Service Management</h3>
+              <p class="institution">PeopleCert</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Issued April 2025. Valid through April 2028. Credential ID: GR761768525TN.
+            Focuses on IT service management principles, value streams, practices, and continual improvement.
+          </p>
+        </div>
+
+        <!-- Certification Card — CompTIA Core -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>CompTIA A+ Certification</h3>
+              <p class="institution">CompTIA</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Issued November 2009. Validates foundational IT support skills including hardware,
+            operating systems, troubleshooting, networking, and customer support.
+          </p>
+        </div>
+
+        <!-- Certification Card — Network+ -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>CompTIA Network+ Certification</h3>
+              <p class="institution">CompTIA</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Issued March 2009. Covers networking concepts, infrastructure, network operations,
+            troubleshooting, and network security fundamentals.
+          </p>
+        </div>
+
+        <!-- Certification Card — Project+ -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>CompTIA Project+ Certification</h3>
+              <p class="institution">CompTIA</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Issued May 2011. Covers project basics, project constraints, communication,
+            change management, documentation, and project life cycle concepts.
+          </p>
+        </div>
+
+        <!-- Certification Card — Security+ -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>CompTIA Security+ ce Certification</h3>
+              <p class="institution">CompTIA</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Issued November 2011; expired November 2014. Demonstrated foundational knowledge in
+            security concepts, threats, access control, risk management, and infrastructure security.
+          </p>
+        </div>
+
+        <!-- Certification Card — Microsoft -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>Microsoft Technology Associate Credentials</h3>
+              <p class="institution">Microsoft</p>
+            </div>
+            <span class="edu-badge earned">Earned</span>
+          </div>
+          <p class="edu-desc">
+            Includes Windows Operating System Fundamentals, Windows Server Administration Fundamentals,
+            Software Development Fundamentals, and Microsoft Certified Professional recognition.
+          </p>
+        </div>
+
+        <!-- Certification Card — AI Learning -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div>
+              <h3>AI, Cloud & Prompt Engineering Learning</h3>
+              <p class="institution">LinkedIn Learning / Microsoft Press</p>
+            </div>
+            <span class="edu-badge active">Ongoing</span>
+          </div>
+          <p class="edu-desc">
+            Completed learning in generative AI, prompt engineering, prompt injection awareness,
+            data analysis with ChatGPT, and Microsoft Azure cloud concepts.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT SECTION
+       Update your email, GitHub, and LinkedIn links here.
+  ============================================================ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Left: message + links -->
+        <div class="contact-text">
+          <p class="section-label">Connect With Me</p>
+          <h2 class="section-title">Let's Connect</h2>
+          <div class="divider"></div>
+
+          <!-- EDIT the message here -->
+          <p>
+            Whether you're a mentor, colleague, classmate, or fellow IT professional — I'd genuinely
+            enjoy connecting. I value conversations about technical support, IT learning,
+            documentation, service quality, and professional growth.
+          </p>
+          <p>
+            Feel free to reach out directly by email, or connect with me on LinkedIn
+            or GitHub.
+          </p>
+
+          <div class="contact-links">
+
+            <!-- Email — REPLACE the href with your real email -->
+            <a href="mailto:terry.nguessan@gmail.com" class="contact-link">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span class="link-label">terry.nguessan@gmail.com</span>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <!-- LinkedIn — REPLACE href with your profile URL -->
+            <a href="https://www.linkedin.com/in/terry-nguessan-6b178266/" target="_blank" rel="noopener" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span class="link-label">linkedin.com/in/terry-nguessan-6b178266</span>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <!-- GitHub — REPLACE href with your profile URL -->
+            <a href="https://github.com/terrynguessan" target="_blank" rel="noopener" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              <span class="link-label">github.com/terrynguessan</span>
+              <span class="link-arrow">→</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right: availability card -->
+        <div>
+          <div class="availability-card">
+            <div class="avail-status">
+              <div class="avail-dot"></div>
+              Open to Professional Connections
+            </div>
+            <h4>Professional Networking</h4>
+            <!-- EDIT the availability note to match your actual situation -->
+            <p>
+              I'm not actively looking for a new job at this time, but I welcome meaningful professional connections,
+              learning conversations, and collaboration with people in technical support, IT, and service operations.
+            </p>
+            <p>
+              I'm also happy to connect with mentors, peers, or anyone working in technical
+              operations and IT infrastructure.
+            </p>
+            <a href="mailto:terry.nguessan@gmail.com" class="btn-primary" style="display: inline-flex; margin-top: 0.5rem;">
+              Connect With Me
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER — edit copy and links
+  ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        &copy; <span id="year"></span> Terry NGuessan.
+        Hosted on <a href="https://terrynguessan.github.io" target="_blank" rel="noopener">GitHub Pages</a>.
+      </p>
+      <div class="footer-right">
+        <a href="#hero">Back to top</a>
+        <a href="https://github.com/terrynguessan" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/terry-nguessan-6b178266/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+       - Dynamic copyright year
+       - Navbar scroll shadow
+       - Mobile menu toggle
+  ============================================================ -->
+  <script>
+    // Auto-update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Add shadow to navbar on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu when a nav link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
